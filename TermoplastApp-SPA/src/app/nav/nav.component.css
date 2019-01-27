@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+.navbar-brand {
+  color: whitesmoke;
+  clip-path: polygon(0% 5%, 100% 15%, 70% 95%, 15% 100%, 0 50%);
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  padding-left: 1rem;
+  padding-right: 5rem;
+  background: linear-gradient(135deg, rgba(239, 108, 0, 1) 0%, rgba(239, 108, 0, 1) 18%, rgba(239, 108, 0, 0.26) 61%, rgba(239, 108, 0, 0.26) 78%);
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.navbar-brand span {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar {
+  padding: 0;
+  background: #1d2e44;
+  border-bottom: #Ef6c00 solid 1px;
+}
+
+.navbar-toggler {
+  background: /* #Ef6c00 */ rgba(185, 98, 26, 0.829);
+}
+
+.button {
+  font-family: 'Raleway', sans-serif;
+  font-size: 19px;
+  text-decoration: none;
+  color: whitesmoke !important;
+  
+ 
+}
+
+
+
+
+@media(min-width: 991px){
+  .navbar{
+    background: transparent;
+  }
+
+  .navbar-brand {
+    font-size: 20px;
+  }
+  .navbar-brand span {
+    font-size: 30px;
+  }
+
+  
+}

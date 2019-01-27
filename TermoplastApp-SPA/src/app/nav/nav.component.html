@@ -1,0 +1,90 @@
+<!-- <nav class="navbar navbar-expand-md navbar-dark" style="background: #1d2e44">
+  <a class="navbar-brand tt"><span>TERMOPLAST</span><br>PVC Prozori i Vrata</a>
+
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+      <a class="nav-link" href="#">O Nama</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Proizvodi</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Admin</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Novosti</a>
+    </li>
+    <li class="nav-item">
+      <a *ngIf="loggedIn()" class="nav-link" (click)="logout()">Logout</a>
+    </li>
+  </ul>
+
+  <div *ngIf="loggedIn()" class="dropdown">
+    <a class="dropdown-toggle text-light">
+      Welcome Admin
+    </a>
+
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Action</a>
+      <div class="dropdown-divider"> <i class="fa fa-user"></i></div>
+      <a class="dropdown-item" href="#"> <i class="fa fa-sign-out"></i> Logout</a>
+    </div>
+  </div> -->
+
+
+<!-- </nav> -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand text-center " href="#"><span >TERMOPLAST</span><br>PVC Prozori i Vrata</a>
+    <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="navbar-collapse collapse" id="navbarToggler">
+      <ul class="navbar-nav ml-3 mr-auto mt-1 mt-lg-0 ">
+          <ul class=" nav  justify-content-center">
+              <li class="nav-item mb-3">
+                <a class="nav-link button  " href="#">Početna</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link button pl-4" href="#">O Nama</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link button pl-4" href="#">Proizvodi</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link button pl-4" href="#">Kontakt</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link button pl-4" href="#">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link button pl-4" href="#">FAQ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link button pl-4" *ngIf="loggedIn()" (click)="logout()">Logout</a>
+              </li>
+            </ul>
+      </ul>
+      <form *ngIf="!loggedIn()" #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
+    <input class="form-control mr-sm-2" type="text" name="username" placeholder="Username" required [(ngModel)]="model.username">
+    <input class="form-control mr-sm-2" type="password" name="password" placeholder="Password" required [(ngModel)]="model.password">
+    <button [disabled]="!loginForm.valid" class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
+  </form>
+    </div>
+  </nav>
+
+<!--   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="#">Features</a>
+          <a class="nav-item nav-link" href="#">Pricing</a>
+          <a class="nav-item nav-link disabled" href="#">Disabled</a>
+        </div>
+      </div>
+    </nav>
+ -->

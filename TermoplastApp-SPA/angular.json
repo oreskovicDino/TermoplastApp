@@ -25,7 +25,11 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "../TermoplastApp-SPA/node_modules/jquery/dist/jquery.min.js",
+              "../TermoplastApp-SPA/node_modules/popper.js/dist/umd/popper.js",
+              "../TermoplastApp-SPA/node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {

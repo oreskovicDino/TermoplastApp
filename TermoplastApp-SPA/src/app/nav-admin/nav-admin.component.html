@@ -1,0 +1,86 @@
+<div class="pos-f-t">
+  <nav class="navbar navbar-dark border-bottom border-info">
+    <button class="navbar-toggler  bg-info" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
+      aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <h1 class="termoplast">Termoplast Web App</h1>
+    <button class="btn btn-danger text-white " *ngIf="loggedIn()" (click)="logout()">Logout</button>
+  </nav>
+
+  <div *ngIf="loggedIn()" class="collapse px-5 py-3" id="navbarToggleExternalContent">
+    <div class=" nav justify-content-center  ">
+
+      <!-- BLOG -->
+      <div class="btn-group dropdown mr-3">
+        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          BLOG
+        </button>
+        <div class="dropdown-menu bg-secondary">
+          <a href="" class="btn btn-default text-white">Novi post</a>
+          <a href="" class="btn btn-default text-white">Uređivanje posta</a>
+          <a href="" class="btn btn-default text-white">Brisanje posta</a>
+        </div>
+      </div>
+      <!-- PROIZVODI -->
+      <div class="btn-group dropdown mr-3">
+        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          PROIZVODI
+        </button>
+        <div class="dropdown-menu bg-secondary">
+          <a href="" class="btn btn-default text-white">NEKI TEXT</a>
+          <a href="" class="btn btn-default text-white">NEKI TEXT</a>
+        </div>
+      </div>
+      <!-- ADMIN -->
+      <div class="btn-group dropdown mr-3">
+        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          ADMIN
+        </button>
+        <div class="dropdown-menu bg-secondary">
+          <a href="" class="btn btn-default text-white p-2" data-toggle="modal" data-target="#exampleModalCenter">Registracija
+            admina</a>
+          <a href="" class="btn btn-default text-white p-2">Uređivanje admina</a>
+          <a href="" class="btn btn-default text-white p-2">Brisanje admina</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Register Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " role="document">
+      <div class="modal-content bg-secondary">
+        <div class="modal-header">
+          <h5 class="modal-title text-white" id="exampleModalCenterTitle">Registriraj novog administratora</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container bg-secondary p-2">
+            <form #registerForm="ngForm" (ngSubmit)="register()">
+              <div class="form-group">
+                <label class="text-white">Unesite korisničko ime</label>
+                <input type="text" class="form-control" placeholder="Korisničko ime" required name="username"
+                  [(ngModel)]="model.username">
+              </div>
+              <div class="form-group">
+                <label class="text-white">Unesite zaporku</label>
+                <input type="password" class="form-control" placeholder="Zaporka" name="password" [(ngModel)]="model.password">
+              </div>          
+            </form>
+          </div>          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="register()" data-dismiss="modal">Registriraj</button>        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

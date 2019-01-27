@@ -1,18 +1,23 @@
-import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-value',
-  templateUrl: './value.component.html',
-  styleUrls: ['./value.component.css']
+  selector: 'app-termoplast-admin',
+  templateUrl: './termoplast-admin.component.html',
+  styleUrls: ['./termoplast-admin.component.css']
 })
-export class ValueComponent implements OnInit {
+export class TermoplastAdminComponent implements OnInit {
   values: any;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.getValues();
+  }
+
+  loggedIn() {
+    const token = localStorage.getItem('token');
+    return !!token;
   }
 
   getValues() {
@@ -22,5 +27,4 @@ export class ValueComponent implements OnInit {
       console.log(error);
     });
   }
-
 }

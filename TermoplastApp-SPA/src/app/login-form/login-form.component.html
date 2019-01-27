@@ -1,0 +1,17 @@
+<div *ngIf="!loggedIn()" class="bg-dark m-5 " style="height: 100vh;">
+  
+  <form #loginForm="ngForm" class="container justify-content-center" (ngSubmit)="login()">
+      <h1 class="text-center text-white">Login</h1>
+      <div class="divider border border-primary mb-3"></div>
+    <div class="form-group">
+      <label class="text-white">Korisničko ime</label>
+      <input class="form-control mr-sm-2" type="text" name="username" placeholder="Username" required [(ngModel)]="model.username">
+      <small id="emailHelp" class="form-text text-info">Unesite korisničko ime</small>
+    </div>
+    <div class="form-group">
+      <label class="text-white">Zaporka</label>
+      <input class="form-control mr-sm-2" type="password" name="password" placeholder="Password" required [(ngModel)]="model.password">
+    </div>
+    <button [disabled]="!loginForm.valid" class="btn btn-success my-2 my-sm-0 px-5 rounded mx-auto d-block" type="submit">Login</button>
+  </form>
+</div>
