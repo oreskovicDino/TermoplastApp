@@ -1,11 +1,12 @@
+
 <section class="showcase">
   <div class="container">
     <h1 class="title">14 godina s vama! <span> Kod nas ćete naći vrhunsku kvalitetu!</span></h1>
-    <a href="#" class="button button_accent">Zatraži ponudu</a>
+    <a [routerLink]="['/ponuda']" routerLinkActive="router-link-active"   class="button button_accent">Zatraži ponudu</a>
   </div>
 </section>
 
-<div class="about">
+<div class="about ">
   <div class="about-textbox">
     <h1>O nama</h1>
     <p><strong>TERMOPLAST </strong>je tvrtka specijalizirana za prodaju i ugradnju PVC stolarije, a
@@ -26,10 +27,10 @@
   </div>
 </div>
 <!-- <div class="mapst">
-<agm-map [latitude]="latitude" [longitude]="longitude" mapTypeId=terrain mapTypeControl="true" [zoom]="14" [rotateControl]="true"
-  [scrollwheel]="false">
-  <agm-marker [latitude]="latitude" [longitude]="longitude">
-    <agm-info-window>TERMOPLAST Osijek </agm-info-window>
-  </agm-marker>
-</agm-map>
+  <agm-map [latitude]="latitude" [longitude]="longitude" mapTypeId=terrain mapTypeControl="true" [zoom]="14"
+    [rotateControl]="true" [scrollwheel]="false">
+    <agm-marker [latitude]="latitude" [longitude]="longitude">
+      <agm-info-window>TERMOPLAST Osijek </agm-info-window>
+    </agm-marker>
+  </agm-map>
 </div> -->

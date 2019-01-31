@@ -21,13 +21,8 @@
 }
 
 .navbar {
-  padding: 0;
-  background: #1d2e44;
+  padding: 0; 
   border-bottom: #Ef6c00 solid 1px;
-}
-
-.navbar-toggler {
-  background: /* #Ef6c00 */ rgba(185, 98, 26, 0.829);
 }
 
 .button {

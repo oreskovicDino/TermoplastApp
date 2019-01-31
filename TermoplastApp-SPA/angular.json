@@ -28,7 +28,8 @@
             "scripts": [
               "../TermoplastApp-SPA/node_modules/jquery/dist/jquery.min.js",
               "../TermoplastApp-SPA/node_modules/popper.js/dist/umd/popper.js",
-              "../TermoplastApp-SPA/node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "../TermoplastApp-SPA/node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "../TermoplastApp-SPA/node_modules/alertifyjs/build/alertify.min.js"
             ]
           },
           "configurations": {

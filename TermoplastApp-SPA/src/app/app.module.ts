@@ -1,3 +1,5 @@
+import { AuthGuard } from './_guards/auth.guard';
+import { AlertifyService } from './_services/alertify.service';
 import { AuthService } from './_services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -12,6 +14,12 @@ import { AgmCoreModule } from '@agm/core';
 import { TermoplastAdminComponent } from './termoplast-admin/termoplast-admin.component';
 import { NavAdminComponent } from './nav-admin/nav-admin.component';
 import { ErrorinterceptorProvider } from './_services/error.interceptor';
+import { RouterModule } from '@angular/router';
+import { appRoutes } from './routes';
+import { ProizvodiComponent } from './proizvodi/proizvodi.component';
+import { KontaktComponent } from './kontakt/kontakt.component';
+import { BlogComponent } from './blog/blog.component';
+import { PonudaComponent } from './ponuda/ponuda.component';
 
 
 
@@ -22,19 +30,26 @@ import { ErrorinterceptorProvider } from './_services/error.interceptor';
       LoginFormComponent,
       HomeComponent,
       TermoplastAdminComponent,
-      NavAdminComponent
+      NavAdminComponent,
+      ProizvodiComponent,
+      KontaktComponent,
+      BlogComponent,
+      PonudaComponent
    ],
    imports: [
       BrowserModule,
       HttpClientModule,
-      FormsModule/* ,
-      AgmCoreModule.forRoot({
-         apiKey: 'AIzaSyBQOq78YnTChyLkXS84V4AfdGH-WiKhPjw'
-      }) */
+      FormsModule,
+      /*AgmCoreModule.forRoot(\\\\\\\\napiKey
+   ]
+}), */
+      RouterModule.forRoot(appRoutes)
    ],
    providers: [
       AuthService,
-      ErrorinterceptorProvider
+      ErrorinterceptorProvider,
+      AlertifyService,
+      AuthGuard
    ],
    bootstrap: [
       AppComponent

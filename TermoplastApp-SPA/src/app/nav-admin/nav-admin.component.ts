@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AlertifyService } from './../_services/alertify.service';
 import { AuthService } from './../_services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,25 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavAdminComponent implements OnInit {
   model: any = {};
-  constructor(private authService: AuthService) { }
+  constructor(public authService: AuthService, private alertify: AlertifyService, private router: Router) { }
 
   ngOnInit() {
   }
 
-  loggedIn() {
-    const token = localStorage.getItem('token');
-    return !!token;
-  }
-
   logout() {
     localStorage.removeItem('token');
-    console.log('logged out');
+    this.alertify.message('Odjavljeni ste');
+    this.router.navigate(['/login']);
   }
   register() {
     this.authService.register(this.model).subscribe(() => {
-      console.log('registration successful');
+      this.alertify.success('Administrator je uspješno registriran');
     }, error => {
-      console.log(error);
+      this.alertify.error(error);
     });
   }
 }
