@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TermoplastApp.API.Data;
 
 namespace TermoplastApp.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20190202164728_Photo")]
+    partial class Photo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,36 +36,6 @@ namespace TermoplastApp.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Admins");
-                });
-
-            modelBuilder.Entity("TermoplastApp.API.Models.Item", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<bool>("Blinds");
-
-                    b.Property<string>("GlassType");
-
-                    b.Property<bool>("Net");
-
-                    b.Property<string>("Note");
-
-                    b.Property<string>("Profil");
-
-                    b.Property<int>("UserId");
-
-                    b.Property<string>("Width");
-
-                    b.Property<string>("WindowType");
-
-                    b.Property<string>("height");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Items");
                 });
 
             modelBuilder.Entity("TermoplastApp.API.Models.Photo", b =>
@@ -104,24 +76,6 @@ namespace TermoplastApp.API.Migrations
                     b.ToTable("Posts");
                 });
 
-            modelBuilder.Entity("TermoplastApp.API.Models.User", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Address");
-
-                    b.Property<string>("Email");
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("Phone");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
-                });
-
             modelBuilder.Entity("TermoplastApp.API.Models.Value", b =>
                 {
                     b.Property<int>("Id")
@@ -132,14 +86,6 @@ namespace TermoplastApp.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Values");
-                });
-
-            modelBuilder.Entity("TermoplastApp.API.Models.Item", b =>
-                {
-                    b.HasOne("TermoplastApp.API.Models.User", "user")
-                        .WithMany("Items")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("TermoplastApp.API.Models.Photo", b =>

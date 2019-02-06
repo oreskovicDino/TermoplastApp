@@ -40,9 +40,9 @@ import { PonudaComponent } from './ponuda/ponuda.component';
       BrowserModule,
       HttpClientModule,
       FormsModule,
-      /*AgmCoreModule.forRoot(\\\\\\\\napiKey
-   ]
-}), */
+     /*  AgmCoreModule.forRoot({
+         apiKey: 'AIzaSyBQOq78YnTChyLkXS84V4AfdGH-WiKhPjw'
+      }), */
       RouterModule.forRoot(appRoutes)
    ],
    providers: [
