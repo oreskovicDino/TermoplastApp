@@ -4,7 +4,7 @@ using TermoplastApp.API.Models;
 
 namespace TermoplastApp.API.Data
 {
-    public interface ITermoplastRepository
+    public interface IAdminRepository
     {
          void Add<T>(T entity) where T: class;
          void Delete<T>(T entitiy) where T: class;

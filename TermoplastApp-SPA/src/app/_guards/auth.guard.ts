@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate {
     if (this.authService.loggedin()) {
       return true;
     }
-    this.alertify.error('pristup nije dozvoljen, pokušajte ponovno!');
+    this.alertify.error('pristup nije dozvoljen! Prijavit se i pokušajte ponovno');
     this.ruoter.navigate(['/home']);
     return false;
   }

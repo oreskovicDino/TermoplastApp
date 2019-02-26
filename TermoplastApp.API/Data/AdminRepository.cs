@@ -5,10 +5,10 @@ using TermoplastApp.API.Models;
 
 namespace TermoplastApp.API.Data
 {
-    public class TermoplastRepository : ITermoplastRepository
+    public class AdminRepository : IAdminRepository
     {
         private readonly DataContext _context;
-        public TermoplastRepository(DataContext context)
+        public AdminRepository(DataContext context)
         {
             this._context = context;
 
@@ -31,7 +31,7 @@ namespace TermoplastApp.API.Data
 
         public async Task<Admin> GetAdmin(int id)
         {
-            var admin =await _context.Admins.FirstOrDefaultAsync(u => u.Id == id);
+            var admin = await _context.Admins.FirstOrDefaultAsync(u => u.Id == id);
             return admin;
         }
 

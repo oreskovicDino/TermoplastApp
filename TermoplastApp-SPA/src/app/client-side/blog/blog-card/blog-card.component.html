@@ -1,0 +1,12 @@
+<div class="card mb-4 border-5 border-primary ">
+    <h3 class="card-title font-weight-bold text-center mb-1 p-2">{{post.title}}</h3>
+  <div class="card-body p-0">
+    <div class="card-img-wrapper"><img src="{{post.photoUrl}}" alt="NEsto" class="card-img-top">
+      <div class="head-text animate">
+        <p class="p-1">{{post.head}}</p>
+        <button class="btn btn-primary btn-lg btn-block" [routerLink]="['/blog/', post.id]" >Detalji</button>
+      </div>
+    </div>
+  </div>
+  
+</div>

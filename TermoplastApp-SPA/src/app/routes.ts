@@ -1,18 +1,22 @@
+import { BlogListResolver } from './_resolvers/blog-list.resolver';
+import { BlogResolver } from './_resolvers/blog.resolver';
+import { BlogDetailComponent } from './client-side/blog/blog-detail/blog-detail.component';
 import { AuthGuard } from './_guards/auth.guard';
-import { PonudaComponent } from './ponuda/ponuda.component';
-import { BlogComponent } from './blog/blog.component';
-import { KontaktComponent } from './kontakt/kontakt.component';
-import { ProizvodiComponent } from './proizvodi/proizvodi.component';
-import { HomeComponent } from './home/home.component';
+import { PonudaComponent } from './client-side/ponuda/ponuda.component';
+import { BlogComponent } from './client-side/blog/blog.component';
+import { KontaktComponent } from './client-side/kontakt/kontakt.component';
+import { ProizvodiComponent } from './client-side/proizvodi/proizvodi.component';
+import { HomeComponent } from './client-side/home/home.component';
 import { Routes } from '@angular/router';
-import { TermoplastAdminComponent } from './termoplast-admin/termoplast-admin.component';
-import { LoginFormComponent } from './login-form/login-form.component';
+import { TermoplastAdminComponent } from './admin-side/termoplast-admin/termoplast-admin.component';
+import { LoginFormComponent } from './admin-side/login-form/login-form.component';
 
 export const appRoutes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'proizvodi', component: ProizvodiComponent },
     { path: 'kontakt', component: KontaktComponent },
-    { path: 'blog', component: BlogComponent },
+    { path: 'blog', component: BlogComponent, resolve: {posts: BlogListResolver} },
+    { path: 'blog/:id', component: BlogDetailComponent, resolve: { post: BlogResolver } },
     { path: 'ponuda', component: PonudaComponent },
     { path: 'login', component: LoginFormComponent },
     {
