@@ -1,0 +1,38 @@
+<div class="jumbotron bg-color m-0 py-4">
+  <h1 class="display-4 m-0 p-0">Podaci o korisniku</h1>
+  <hr class="my-4 bg-primary">
+  <div class="text-center">
+    <h3 class="d-inline mx-3">Ime:<span class="badge badge-secundary border border-primary rounded-pill ml-2 px-3">{{user.name}}</span></h3>
+    <h3 class="d-inline mx-3">Email:<span class="badge badge-secundary border border-primary rounded-pill ml-2 px-3">{{user.email}}</span></h3>
+    <h3 class="d-inline mx-3">Adresa:<span class="badge badge-secundary border border-primary rounded-pill ml-2 px-3">{{user.address}}</span></h3>
+    <h3 class="d-inline mx-3">Tel:<span class="badge badge-secundary border border-primary rounded-pill ml-2 px-3">{{user.phone}}</span></h3>
+  </div>
+
+</div>
+<hr class="bg-primary mt-0">
+
+
+<div class="row justify-content-center m-3">
+  <div class="col-lg-5 col-md-12 border border-primarybadge-secundary border border-primary m-3 p-3 bg-color  " *ngFor="let item of items">
+    <h3 class="display-5">Pozicija {{item.pozicija}}</h3>
+
+    <hr class="bg-primary my-4">
+
+    <div class="row justify-content-center">
+      <div class="col-4 m-2">
+        <img src="{{item.tip}}" alt="" class="m-1" style="max-width: 100px; max-height: 150px;">
+        <h3 class="mx-1 mt-2">Širina:<span class="badge badge-secundary border border-primary rounded-pill ml-2">{{item.width}}</span></h3>
+        <h3 class="mx-1">Visina:<span class="badge badge-secundary border border-primary rounded-pill ml-2">{{item.height}}</span></h3>
+      </div>
+      <div class="col-7  m-2">
+        <h3 class="m-2 p-2">Vrsta stakla:<span class="badge badge-secundary border border-primary rounded-pill ml-2 px-3">{{item.glassType}}</span></h3>
+        <h3 class="m-2 p-2">Komarnik:<span class="badge badge-secundary border border-primary rounded-pill ml-2 px-3">{{item.net}}</span></h3>
+        <h3 class="m-2 p-2">Rolete:<span class="badge badge-secundary border border-primary rounded-pill ml-2 px-3">{{item.blinds}}</span></h3>
+        <h3 class="m-2 p-2">Profil:<span class="badge badge-secundary border border-primary rounded-pill ml-2 px-3">{{item.profil}}</span></h3>
+      </div>
+    </div>
+    <hr class="bg-primary mt-4">
+    <h3 class="my-2">Napomena:</h3>
+    <h3 class=" border border-primary rounded-pill px-4 py-2  m-2 text-wrap">{{item.note}}</h3>
+  </div>
+</div>

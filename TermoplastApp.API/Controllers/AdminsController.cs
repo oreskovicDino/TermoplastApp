@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -34,8 +35,31 @@ namespace TermoplastApp.API.Controllers
         public async Task<IActionResult> GetAdmin(int id)
         {
             var admin = await _repo.GetAdmin(id);
-            // var adminToReturn = _mapper.Map<AdminsForListDto>(admin);
-            return Ok(admin);
+            var adminToReturn = _mapper.Map<AdminsForListDto>(admin);
+            return Ok(adminToReturn);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateAdmin(int id, AdminsForUpdateDto adminForUpdateDto)
+        {
+            
+            var adminFromRepo = await _repo.GetAdmin(id);
+            _mapper.Map(adminForUpdateDto, adminFromRepo);
+            if (await _repo.SaveAll())
+            {
+                return NoContent();
+            }
+            throw new Exception($"Updatig admin {id} faild on save");
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> deleteAdmin(int id)
+        {
+            var admin = await _repo.GetAdmin(id);
+            _repo.Delete(admin);
+            if(await _repo.SaveAll())
+                return Ok();
+
+            return BadRequest("Faild to delete admin");
         }
     }
 }

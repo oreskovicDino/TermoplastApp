@@ -1,0 +1,88 @@
+<div class="jumbotron border border-primary bg-color py-4">
+  <h1 class="display-4">Admin</h1>
+
+
+  <button type="button" class="btn border-primary btn-secondary text-info px-4 rounded-pill btn-lg m-1 " data-toggle="collapse"
+    title="Popis Administratora" href="#popisAdmina" role="button" aria-expanded="false" aria-controls="popisAdmina"><i
+      class="fa fa-list"></i></button>
+
+  <button type="button" class="btn border-primary btn-secondary text-success btn-lg px-4 rounded-pill m-1" data-toggle="modal"
+    title="Novi Administrator" data-target="#registracijaAdministaratora"><i class="fa fa-plus-square"></i></button>
+
+
+  <hr class="bg-primary my-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="collapse admin-multi-collapse" id="popisAdmina">
+        <div class="card border bg-color card-body">
+          <table class=" table table-hover table-responsive-sm p-0 m-0">
+            <thead class="h5">
+              <tr>
+                <th scope="col">Pregledaj</th>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Lastname</th>
+                <th scope="col">Username</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let admin of admins" class="h5">
+              <tr>
+                <td>
+                  <button type="button" class="btn border-primary btn-secondary text-white  rounded-pill" [routerLink]="['/a/admin/', admin.id]">
+                    <i class="fa fa-eye"></i></button>
+                </td>
+                <td>{{admin.id}}</td>
+                <td>{{admin.name}}</td>
+                <td>{{admin.lastname}}</td>
+                <td>{{admin.username}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Register Modal -->
+<div class="modal fade" id="registracijaAdministaratora" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content bg-secondary">
+      <div class="modal-header">
+        <h5 class="modal-title text-white" id="exampleModalCenterTitle">Registriraj novog administratora</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container bg-secondary p-2">
+          <form #registerForm="ngForm" (ngSubmit)="register()">
+            <div class="form-group">
+              <label class="text-white">Ime</label>
+              <input type="text" class="form-control" placeholder="Unseite ime" required name="username" [(ngModel)]="model.name">
+            </div>
+            <div class="form-group">
+              <label class="text-white">Prezime</label>
+              <input type="text" class="form-control" placeholder="Unseite Prezime" required name="username"
+                [(ngModel)]="model.lastname">
+            </div>
+            <div class="form-group">
+              <label class="text-white">Korisničko ime</label>
+              <input type="text" class="form-control" placeholder="Unseite Korisničko ime" required name="username"
+                [(ngModel)]="model.username">
+            </div>
+            <div class="form-group">
+              <label class="text-white">Zaporka</label>
+              <input type="password" class="form-control" placeholder="Unseite Zaporku" name="password" [(ngModel)]="model.password">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="register()" data-dismiss="modal">Registriraj</button>
+      </div>
+    </div>
+  </div>
+</div>

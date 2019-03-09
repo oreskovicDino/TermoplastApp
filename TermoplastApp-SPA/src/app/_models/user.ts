@@ -1,6 +1,5 @@
 import { Items } from './items';
 
-
 export interface User {
     id: number;
     name: string;

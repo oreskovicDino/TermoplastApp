@@ -39,7 +39,9 @@ namespace TermoplastApp.API.Controllers
 
             var adminToCreate = new Admin
             {
-                Username = adminForRegisterDto.Username
+                Username = adminForRegisterDto.Username,
+                Name = adminForRegisterDto.Name,
+                Lastname = adminForRegisterDto.Lastname
             };
 
             var createdAdmin = await _repo.Register(adminToCreate, adminForRegisterDto.Password);

@@ -1,3 +1,12 @@
+import { PreventUnsavedAdminChanges } from './_guards/prevent-unsaved-admin-changes.guard';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { UserResolver } from './_resolvers/user.resolver';
+import { UserListResolver } from './_resolvers/user-list.resolver';
+import { AdminResolver } from './_resolvers/admin.resolver';
+import { AdminEditComponent } from './admin-side/edit-components/admin-edit/admin-edit.component';
+import { AdminBlogEditComponent } from './admin-side/edit-components/admin-blog-edit/admin-blog-edit.component';
+import { AdminPonudaEditComponent } from './admin-side/edit-components/admin-ponuda-edit/admin-ponuda-edit.component';
+import { AdminListResolver } from './_resolvers/admin-list.resolver';
 import { BlogListResolver } from './_resolvers/blog-list.resolver';
 import { BlogResolver } from './_resolvers/blog.resolver';
 import { BlogDetailComponent } from './client-side/blog/blog-detail/blog-detail.component';
@@ -15,7 +24,7 @@ export const appRoutes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'proizvodi', component: ProizvodiComponent },
     { path: 'kontakt', component: KontaktComponent },
-    { path: 'blog', component: BlogComponent, resolve: {posts: BlogListResolver} },
+    { path: 'blog', component: BlogComponent, resolve: { posts: BlogListResolver } },
     { path: 'blog/:id', component: BlogDetailComponent, resolve: { post: BlogResolver } },
     { path: 'ponuda', component: PonudaComponent },
     { path: 'login', component: LoginFormComponent },
@@ -24,7 +33,26 @@ export const appRoutes: Routes = [
         runGuardsAndResolvers: 'always',
         canActivate: [AuthGuard],
         children: [
-            { path: 'admin', component: TermoplastAdminComponent }
+            {
+                path: 'admin', component: TermoplastAdminComponent,
+                resolve:
+                {
+                    posts: BlogListResolver,
+                    admins: AdminListResolver,
+                    users: UserListResolver
+                }
+            },
+            {
+                path: 'a/ponuda/:id', component: AdminPonudaEditComponent, resolve: { user: UserResolver }
+            },
+            {
+                path: 'a/blog/:id', component: AdminBlogEditComponent, resolve: { post: BlogResolver },
+                canDeactivate: [PreventUnsavedChanges]
+            },
+            {
+                path: 'a/admin/:id', component: AdminEditComponent, resolve: { admin: AdminResolver },
+                canDeactivate: [PreventUnsavedAdminChanges]
+            }
         ]
     },
     { path: '**', redirectTo: '', pathMatch: 'full' }

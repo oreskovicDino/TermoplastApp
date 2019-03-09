@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -39,7 +41,31 @@ namespace TermoplastApp.API.Controllers
         public async Task<IActionResult> AddPost(Posts posts)
         {
             var createdPost = await _repo.Add(posts);
-            return StatusCode(201);
+            return Ok(createdPost);
+            /* return StatusCode(201); */
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdatePost(int id, PostForUpdateDto postForUpdateDto)
+        {
+            var postFromRepo = await _repo.GetPost(id);
+            _mapper.Map(postForUpdateDto, postFromRepo);
+            if (await _repo.SaveAll())
+                return NoContent();
+            throw new Exception($"Updating post {id} failed on save");
+
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeletePost(int id)
+        {
+            var post = await _repo.GetPost(id);
+
+            _repo.Delete(post);
+            if (await _repo.SaveAll())
+                return Ok();
+            return BadRequest("Faild to delete post"); 
+
         }
     }
 }

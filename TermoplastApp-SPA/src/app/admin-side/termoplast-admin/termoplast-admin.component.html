@@ -1,6 +1,28 @@
-<app-nav-admin></app-nav-admin>
-<div class="container">
-  <h1 *ngFor="let user of users">{{user.name}} / {{user.email}} /{{user.phone}}/ {{user.address}}</h1>
+<!-- <div class="container mt-2 border-left border-primary border-right">
+  <div class="row">
+    <div class="col-lg-2 col-md-12 col-sm-12">
+      <app-nav-admin [admins]="admins"></app-nav-admin>
+      
+        <div class="btn-group-vertical btn-group-lg btn-block " role="group" aria-label="First group">
+          <button type="button" class="btn btn-outline-primary mb-2">1</button>
+          <button type="button" class="btn btn-outline-primary mb-2">2</button>
+          <button type="button" class="btn btn-outline-primary mb-2">3</button>
+          <button type="button" class="btn btn-outline-primary mb-2">4</button>
+        </div>
+      
+    </div>
+    <div class="col-lg-8 col-md-12  col-sm-12">
 
+      <h1 *ngFor="let user of users">{{user.name}} / {{user.email}} /{{user.phone}}/ {{user.address}}</h1>
+
+    </div>
+  </div>
+  
+</div> -->
+
+<div class=" m-4 ">
+  <app-admin-ponuda-card [users]="users"></app-admin-ponuda-card>
+  <app-admin-blog-card [posts]="posts"></app-admin-blog-card>
+  <app-admin-card [admins]="admins"></app-admin-card>
 
 </div>

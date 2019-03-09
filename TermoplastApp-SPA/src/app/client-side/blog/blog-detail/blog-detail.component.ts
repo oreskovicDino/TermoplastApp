@@ -32,8 +32,8 @@ export class BlogDetailComponent implements OnInit {
   galleryOpt() {
     this.galleryOptions = [
       {
-        width: '1280px',
-        height: '720px',
+        width: '1000px',
+        height: '600px',
         imagePercent: 100,
         thumbnailsColumns: 4,
         imageAnimation: NgxGalleryAnimation.Slide

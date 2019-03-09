@@ -8,4 +8,6 @@ export interface Items {
     net?: boolean;
     blinds?: boolean;
     note?: string;
+    pozicija?: string;
+    tip?: string;
 }

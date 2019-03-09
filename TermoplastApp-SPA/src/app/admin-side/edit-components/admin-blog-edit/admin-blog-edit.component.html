@@ -1,0 +1,78 @@
+<div class="">
+  <div class=" mt-4">
+    <!-- \\\\\\\\\\\\\\\\\\\\\\\\\Title///////////////////////// -->
+    <h1 class="display-4 text-center">{{post.title}}</h1>
+    <hr class="my-4 bg-primary">
+    <!-- /////////////////////////Title\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+    <div class="row justify-content-center mt-3 m-1">
+      <!-- \\\\\\\\\\\\\\\\\\\\\\\\\Main Photo///////////////////////// -->
+      <div class="col-lg-6 col-md-12 ">
+        <div *ngIf="editForm.dirty" class="alert bg-color-1 alert-dismissible fade show" role="alert">
+          <strong class="pr-1 text-warning">Information:</strong> You have made changes. Any unsaved changes will be
+          lost!
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <hr class="my-4 bg-primary ">
+        <div class="bg-color py-3">
+          <img src="{{post.photoUrl}}" alt="{{post.title}}" class="img-thumbnail  rounded mx-auto d-block" style="max-width: 350px;" >
+        </div>
+        <hr class="my-4 bg-primary ">
+        <div class=" bg-color py-3">
+          <button type="submit" class="btn btn-lg btn-block border-danger btn-secondary  mx-auto rounded-pill" style="max-width: 350px;" (click)="deletePost(post.id)">Obriši</button>
+          <button [disabled]="!editForm.dirty" type="submit" form="editForm" class="btn btn-lg btn-block border-success btn-secondary mx-auto rounded-pill"
+            style="max-width: 350px;">Spremi Promjene</button>
+        </div>
+      </div>
+      <!-- /////////////////////////Main Photo\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+
+      <!-- \\\\\\\\\\\\\\\\\\\\\\\\\Editor///////////////////////// -->
+      <div class="col-lg-6 col-md-12">
+        <hr class="my-4 bg-primary ">
+        <div class="px-3 bg-color p-2">
+          <ul class="nav nav-tabs mt-3 mx-4" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="tekst-tab" data-toggle="tab" href="#tekst" role="tab" aria-controls="tekst"
+                aria-selected="true">Tekst</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="glaerija-tab" data-toggle="tab" href="#glaerija" role="tab" aria-controls="glaerija"
+                aria-selected="false">Galerija</a>
+            </li>
+          </ul>
+          <div class="tab-content p-4" id="myTabContent">
+            <!-- \\\\\\\\\\\\\\\\\\\\\\\\\Text Editor///////////////////////// -->
+            <div class="tab-pane fade show active" id="tekst" role="tabpanel" aria-labelledby="tekst-tab">
+              <form #editForm="ngForm" id="editForm" (ngSubmit)="updatePost()">
+                <div class="form-group">
+                  <label for="title">Naslov</label>
+                  <input type="text" class="form-control text-white bg-color-1" name="title" [(ngModel)]="post.title">
+                </div>
+                <div class="form-group">
+                  <label for="head">Headlines</label>
+                  <textarea name="head" rows="8" class="form-control text-white bg-color-1" [(ngModel)]="post.head"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="body">Body</label>
+                  <textarea name="body" rows="15" class="form-control text-white bg-color-1" [(ngModel)]="post.body"></textarea>
+                </div>
+              </form>
+            </div>
+            <!-- /////////////////////////Text Editor\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+            <!-- \\\\\\\\\\\\\\\\\\\\\\\\\Photo Editor///////////////////////// -->
+            <div class="tab-pane fade  " id="glaerija" role="tabpanel" aria-labelledby="glaerija-tab">
+              <div class="container">
+                <app-photo-editor [post]="post" [photos]="post.photos" (getPostPhotoChange)="updateMainPhoto($event)"></app-photo-editor>
+              </div>
+            </div>
+            <!-- /////////////////////////Photo Editor\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+          </div>
+        </div>
+        <!-- /////////////////////////Editor\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+        <hr class="my-4 bg-primary ">
+      </div>
+    </div>
+  </div>
+</div>

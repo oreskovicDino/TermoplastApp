@@ -11,13 +11,19 @@ namespace TermoplastApp.API.Helpers
         {
             CreateMap<Admin, AdminsForListDto>();
             CreateMap<User, UserForListDto>();
-            CreateMap<Posts, PostForListDto>().ForMember(dest => dest.PhotoUrl, opt =>{
+            CreateMap<Posts, PostForListDto>().ForMember(dest => dest.PhotoUrl, opt =>
+            {
                 opt.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url);
             });
-            CreateMap<Posts, PostForDetailedDto>().ForMember(dest => dest.PhotoUrl, opt =>{
+            CreateMap<Posts, PostForDetailedDto>().ForMember(dest => dest.PhotoUrl, opt =>
+            {
                 opt.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url);
             });
             CreateMap<Photo, PhotosForDetailedDto>();
+            CreateMap<PostForUpdateDto, Posts>();
+            CreateMap<AdminsForUpdateDto, Admin>();
+            CreateMap<Photo, PhotoForReturnDto>();
+            CreateMap<PhotoForCreationDto, Photo>();
         }
     }
 }

@@ -20,8 +20,19 @@
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link button pl-4" [routerLink]="['/blog']">Blog</a>
         </li>
-        <li class="nav-item">
-          <a *ngIf="loggedIn()" class="nav-link button pl-4 active" (click)="logout()">Odjava</a>
+        <li *ngIf="loggedIn()" class="nav-item">
+          <div class="btn-group nav-link ">
+            <button class="btn  ml-3  btn-secondary" type="button" (click)="logout()">Odjava{{adminName}}</button>
+            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+              <div class="d-flex justify-content-center p-1">
+                <button class="btn btn-outline-primary text-white"  [routerLink]="['/admin']">Kontrolna ploca</button>
+              </div>
+            </div>
+          </div>
         </li>
       </ul>
     </ul>

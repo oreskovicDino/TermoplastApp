@@ -9,6 +9,7 @@ namespace TermoplastApp.API.Models
         public string Description { get; set; }
         public DateTime DateAdded { get; set; }
         public bool IsMain { get; set; }
+        public string PublicId { get; set; }
         public Posts Posts { get; set; }
         public int PostsId { get; set; }
     }

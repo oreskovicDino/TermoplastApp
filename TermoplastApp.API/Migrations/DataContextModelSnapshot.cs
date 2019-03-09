@@ -79,6 +79,8 @@ namespace TermoplastApp.API.Migrations
 
                     b.Property<int>("PostsId");
 
+                    b.Property<string>("PublicId");
+
                     b.Property<string>("Url");
 
                     b.HasKey("Id");

@@ -12,9 +12,11 @@ import { AlertifyService } from '../_services/alertify.service';
 export class NavComponent implements OnInit {
   model: any = {};
 
+
   constructor(private authService: AuthService, private router: Router, private alertify: AlertifyService) { }
 
   ngOnInit() {
+
   }
 
   login() {
@@ -34,5 +36,6 @@ export class NavComponent implements OnInit {
     this.alertify.message('Odjavljeni ste');
     this.router.navigate(['/login']);
   }
+
 
 }
