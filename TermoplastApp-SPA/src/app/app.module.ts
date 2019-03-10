@@ -78,9 +78,9 @@ export function tokenGetter() {
       BrowserModule,
       HttpClientModule,
       FormsModule,
-      /* AgmCoreModule.forRoot({
+      AgmCoreModule.forRoot({
          apiKey: 'AIzaSyBQOq78YnTChyLkXS84V4AfdGH-WiKhPjw'
-      }), */
+      }),
       RouterModule.forRoot(appRoutes),
       NgxGalleryModule,
       FileUploadModule,

@@ -5,6 +5,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { User } from 'src/app/_models/user';
 import { Items } from 'src/app/_models/items';
 import { NgForm } from '@angular/forms';
+import { count } from 'rxjs/operators';
 
 @Component({
   selector: 'app-ponuda-items',
@@ -16,6 +17,7 @@ export class PonudaItemsComponent implements OnInit {
   user: User;
   items: Items[];
   item: any = {};
+
 
   constructor(private route: ActivatedRoute, private alertify: AlertifyService, private userService: UserService,
     private router: Router) { }
