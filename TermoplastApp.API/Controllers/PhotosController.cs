@@ -71,6 +71,7 @@ namespace TermoplastApp.API.Controllers
             photoForCreationDto.PublicId = uploadResult.PublicId;
 
             var photo = _mapper.Map<Photo>(photoForCreationDto);
+            
             if (!postFromRepo.Photos.Any(p => p.IsMain))
             {
                 photo.IsMain = true;

@@ -1,3 +1,4 @@
+import { Items } from './../_models/items';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
@@ -17,6 +18,15 @@ export class UserService {
 
   getUser(id): Observable<User> {
     return this.http.get<User>(this.baseUrl + 'user/' + id);
+  }
+  addUser(user: User): Observable<User> {
+    return this.http.post<User>(this.baseUrl + 'user/', user);
+  }
+  deleteUser(id: number) {
+    return this.http.delete(this.baseUrl + 'user/' + id, {});
+  }
+  addItem(userid: number, item: Items) {
+    return this.http.post(this.baseUrl + 'user/' + userid + '/item', item);
   }
 
 }

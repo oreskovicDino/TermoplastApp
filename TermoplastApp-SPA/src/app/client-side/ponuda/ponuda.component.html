@@ -1,3 +1,42 @@
-<p>
-  ponuda works!
-</p>
+<div class="container mt-5">
+  <div class="jumbotron jumbotron-fluid bg-color">
+    <div class="container">
+      <h1 class="display-4">Osnovni Podaci</h1>
+      <hr class="bg-primary my-4">
+
+      <form #addUserForm="ngForm" id="addUserForm" (ngSubmit)="addUser()">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="na">Ime</label>
+            <input type="text" class="form-control" id="name" placeholder="Ime" name="name" [(ngModel)]="user.name">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="address">Adresa</label>
+            <input type="text" class="form-control" id="address" placeholder="1234 Main St" name="address"  [(ngModel)]="user.address">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email" placeholder="Email" name="email" [(ngModel)]="user.email">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="phone">Tel:</label>
+            <input type="text" class="form-control" id="phone" placeholder="098/ 9213323" name="phone" [(ngModel)]="user.phone">
+          </div>
+        </div>
+
+        <div class="form-group" >
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+              Check me out
+            </label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary float-right" form="addUserForm">Sign in</button>
+      </form>
+      
+    </div>
+  </div>
+</div>

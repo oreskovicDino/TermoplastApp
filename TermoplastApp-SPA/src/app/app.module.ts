@@ -1,3 +1,4 @@
+import { PonudaItemsComponent } from './client-side/ponuda/ponuda-items/ponuda-items.component';
 import { AdminBlogAddComponent } from './admin-side/termoplast-admin/admin-blog-card/admin-blog-add/admin-blog-add.component';
 import { PhotoEditorComponent } from './admin-side/edit-components/admin-blog-edit/photo-editor/photo-editor.component';
 import { PreventUnsavedAdminChanges } from './_guards/prevent-unsaved-admin-changes.guard';
@@ -61,6 +62,7 @@ export function tokenGetter() {
       KontaktComponent,
       BlogComponent,
       PonudaComponent,
+      PonudaItemsComponent,
       BlogDetailComponent,
       BlogCardComponent,
       AdminBlogCardComponent,

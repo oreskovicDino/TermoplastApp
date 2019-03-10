@@ -23,7 +23,9 @@ namespace TermoplastApp.API.Helpers
             CreateMap<PostForUpdateDto, Posts>();
             CreateMap<AdminsForUpdateDto, Admin>();
             CreateMap<Photo, PhotoForReturnDto>();
+            CreateMap<Item, ItemForReturnDto>();
             CreateMap<PhotoForCreationDto, Photo>();
+            CreateMap<ItemForCreationDto, Item>();
         }
     }
 }

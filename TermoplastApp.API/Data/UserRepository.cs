@@ -26,6 +26,12 @@ namespace TermoplastApp.API.Data
             _contex.Remove(entity);
         }
 
+        public async Task<Item> GetItem(int id)
+        {
+            var item = await _contex.Items.FirstOrDefaultAsync(p => p.Id == id);
+            return item;
+        }
+
         public async Task<User> GetUser(int id)
         {
             var user = await _contex.Users.Include(p => p.Items).FirstOrDefaultAsync(u => u.Id == id);

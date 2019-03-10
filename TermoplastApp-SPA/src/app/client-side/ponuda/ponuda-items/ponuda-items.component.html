@@ -1,0 +1,141 @@
+<div class="jumbotron bg-color m-0 py-4">
+  <h1 class="display-4 m-0 p-0">Podaci o korisniku</h1>
+  <button type="button" class="btn btn-primary  float-right" data-toggle="modal" data-target=".bd-example-modal-xl">Itmes</button>
+  <br>
+  <hr class="my-4 bg-primary">
+  <div class="text-center">
+    <h3 class="d-inline mx-3">Ime:<span class="badge badge-secundary border border-primary rounded-pill ml-2 px-3">{{user.name}}</span></h3>
+    <h3 class="d-inline mx-3">Email:<span class="badge badge-secundary border border-primary rounded-pill ml-2 px-3">{{user.email}}</span></h3>
+    <h3 class="d-inline mx-3">Adresa:<span class="badge badge-secundary border border-primary rounded-pill ml-2 px-3">{{user.address}}</span></h3>
+    <h3 class="d-inline mx-3">Tel:<span class="badge badge-secundary border border-primary rounded-pill ml-2 px-3">{{user.phone}}</span></h3>
+  </div>
+</div>
+<hr class="bg-info my-5">
+<div class="jumbotron m-0 py-4 bg-color" style="height: 50%;">
+  <h1 class="display-4 m-0 p-0">Jumbotron</h1>
+  <hr class="bg-primary my-2">
+  <div class="container">
+
+    <form #editItem="ngForm" id="editItem" (ngSubmit)="addItem()">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="height">Visina Otvora</label>
+          <input type="text" class="form-control" name="height" placeholder="1200 cm" [(ngModel)]="item.height">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="width">Širina Otvora</label>
+          <input type="text" class="form-control" name="width" placeholder="800 cm" [(ngModel)]="item.width">
+        </div>
+      </div>
+
+      <div class="form-row">
+
+        <div class="form-group col-md-6">
+          <label for="profil">Vrsta Profila</label>
+          <select name="profil" class="form-control" [(ngModel)]="item.profil">
+            <option value="3D" selected>3D</option>
+            <option value="BlueEvolution">BlueEvolution</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="windowType">Vrsta Prozora / Vrata </label>
+          <select name="windowType" class="form-control" [(ngModel)]="item.windowType">
+            <option value="jednokrilni" selected>JEDNOKRILNI</option>
+            <option value="Dvokrilni">DVOKRILNI</option>
+            <option value="Vrata">VRATA</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="form-row">
+
+        <div class="form-group col-md-6">
+          <label for="glassType">Vrsta Stakla</label>
+          <select name="glassType" class="form-control" [(ngModel)]="item.glassType">
+            <option value="DVOSLOJNO" selected>DVOSLOJNO</option>
+            <option value="DVOSLOJNO - MUTNO">DVOSLOJNO - MUTNO</option>
+            <option value="TROSLOJNO">TROSLOJNO</option>
+            <option value="TROSLOJNO - MUTNO">TROSLOJNO - MUTNO</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="net">Komarnik</label>
+          <select name="net" class="form-control" [(ngModel)]="item.net">
+            <option selected value="false" >NE</option>
+            <option value="true">DA</option>
+          </select>
+        </div> 
+
+        <div class="form-group col-md-3">
+          <label for="blinds">Rolete</label>
+          <select name="blinds" class="form-control" [(ngModel)]="item.blinds">
+            <option value="false" selected>NE</option>
+            <option value="true">DA</option>
+          </select>
+        </div> 
+
+      </div>
+
+      <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="note">Napomena</label>
+            <textarea class="form-control" name="note" rows="3" [(ngModel)]="item.note"></textarea>
+          </div>
+            
+          <div class="form-group col-md-6">
+            <div class="container my-5">
+              <button type="submit" form="editItem" class="btn btn-lg btn-primary float-right" onclick="window.location.reload()">Sign in</button>
+            </div>
+          </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade bd-example-modal-xl bg-color-1" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-xl bg-color-1 ">
+    <div class="modal-content">
+      <div class="modal-header bg-color-3">
+        <h5 class="modal-title" id="exampleModalScrollableTitle">Spremljeni ...</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body bg-color-2">
+
+        <div class=" border border-primary  border border-primary m-2 p-1 bg-color  " *ngFor="let item of items">
+          <h3 class="display-5 m-2">Pozicija {{item.pozicija}}</h3>
+
+          <hr class="bg-primary my-4 mx-2">
+
+          <div class="row justify-content-center">
+            <div class="col-2 m-2 ">
+              <img src="{{item.tip}}" alt="" class="m-1" style="max-width: 75px; max-height: 120px;">
+              <p class="mx-1 mt-2">Širina:<span class="badge badge-secundary border border-primary rounded-pill ml-2">{{item.width}}</span></p>
+              <p class="mx-1">Visina:<span class="badge badge-secundary border border-primary rounded-pill ml-2">{{item.height}}</span></p>
+            </div>
+            <div class="col-7 m-2">
+              <p class="m-2 p-2">Vrsta stakla:<span class="badge badge-secundary border border-primary rounded-pill mx-2 px-3">{{item.glassType}}</span></p>
+              <p class="m-2 p-2">Komarnik:<span class="badge badge-secundary border border-primary rounded-pill ml-2 px-3">{{item.net}}</span></p>
+              <p class="m-2 p-2">Rolete:<span class="badge badge-secundary border border-primary rounded-pill ml-2 px-3">{{item.blinds}}</span></p>
+              <p class="m-2 p-2">Profil:<span class="badge badge-secundary border border-primary rounded-pill ml-2 px-3">{{item.profil}}</span></p>
+            </div>
+          </div>
+          <hr class="bg-primary my-2 mx-2">
+          <h5 class="my-2 mx-2">Napomena:</h5>
+          <p class=" border border-primary rounded-pill px-4 py-2  mx-2 text-wrap">{{item.note}}</p>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

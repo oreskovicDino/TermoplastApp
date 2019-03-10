@@ -1,3 +1,4 @@
+import { PonudaItemsComponent } from './client-side/ponuda/ponuda-items/ponuda-items.component';
 import { PreventUnsavedAdminChanges } from './_guards/prevent-unsaved-admin-changes.guard';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { UserResolver } from './_resolvers/user.resolver';
@@ -27,6 +28,7 @@ export const appRoutes: Routes = [
     { path: 'blog', component: BlogComponent, resolve: { posts: BlogListResolver } },
     { path: 'blog/:id', component: BlogDetailComponent, resolve: { post: BlogResolver } },
     { path: 'ponuda', component: PonudaComponent },
+    { path: 'ponuda/:id', component: PonudaItemsComponent, resolve: { user: UserResolver } },
     { path: 'login', component: LoginFormComponent },
     {
         path: '',

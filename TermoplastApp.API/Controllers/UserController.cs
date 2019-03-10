@@ -9,7 +9,7 @@ using TermoplastApp.API.Models;
 
 namespace TermoplastApp.API.Controllers
 {
-    [Authorize]
+    
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
@@ -37,11 +37,12 @@ namespace TermoplastApp.API.Controllers
             return Ok(user);
         }
 
-        [HttpPost("add")]
+        [HttpPost]
         public async Task<IActionResult> AddUser(User user)
         {
             var createdUser = await _repo.Add(user);
-            return StatusCode(201);
+            return Ok(createdUser);
+            /* return StatusCode(201); */
         }
     }
 }
