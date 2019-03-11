@@ -44,5 +44,17 @@ namespace TermoplastApp.API.Controllers
             return Ok(createdUser);
             /* return StatusCode(201); */
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            var user = await _repo.GetUser(id);
+            _repo.Delete(user);
+            if (await _repo.SaveAll())
+            {
+                return Ok();
+            }
+            return BadRequest("Faild to delete user");
+        }
     }
 }

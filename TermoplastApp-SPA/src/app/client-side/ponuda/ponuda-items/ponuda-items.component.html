@@ -16,15 +16,19 @@
   <hr class="bg-primary my-2">
   <div class="container">
 
-    <form #editItem="ngForm" id="editItem" (ngSubmit)="addItem()">
+    <form [formGroup]="addForm" (ngSubmit)="addItem()">
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="height">Visina Otvora</label>
-          <input type="text" class="form-control" name="height" placeholder="1200 cm" [(ngModel)]="item.height">
+          <input type="text" [ngClass]="{'is-invalid': addForm.get('height').errors && addForm.get('height').touched}"
+          class="form-control" formControlName="height" placeholder="1200 cm" >
+          <div class="invalid-feedback" *ngIf="addForm.get('height').hasError('required') && addForm.get('height').touched">Ovo polje je obvezno</div>
         </div>
         <div class="form-group col-md-6">
           <label for="width">Širina Otvora</label>
-          <input type="text" class="form-control" name="width" placeholder="800 cm" [(ngModel)]="item.width">
+          <input type="text" [ngClass]="{'is-invalid': addForm.get('width').errors && addForm.get('width').touched}"
+          class="form-control" formControlName="width" placeholder="800 cm">
+          <div class="invalid-feedback" *ngIf="addForm.get('height').hasError('required') && addForm.get('height').touched">Ovo polje je obvezno</div>
         </div>
       </div>
 
@@ -32,17 +36,17 @@
 
         <div class="form-group col-md-6">
           <label for="profil">Vrsta Profila</label>
-          <select name="profil" class="form-control" [(ngModel)]="item.profil">
-            <option value="3D" selected>3D</option>
+          <select formControlName="profil" class="form-control">
+            <option value="3D Design" >3D Design</option>
             <option value="BlueEvolution">BlueEvolution</option>
           </select>
         </div>
 
         <div class="form-group col-md-6">
           <label for="windowType">Vrsta Prozora / Vrata </label>
-          <select name="windowType" class="form-control" [(ngModel)]="item.windowType">
-            <option value="jednokrilni" selected>JEDNOKRILNI</option>
-            <option value="Dvokrilni">DVOKRILNI</option>
+          <select formControlName="windowType" class="form-control ">
+            <option value="jednokrilni" >JEDNOKRILNI</option>
+            <option value="Dvokrilni" >DVOKRILNI</option>
             <option value="Vrata">VRATA</option>
           </select>
         </div>
@@ -53,8 +57,8 @@
 
         <div class="form-group col-md-6">
           <label for="glassType">Vrsta Stakla</label>
-          <select name="glassType" class="form-control" [(ngModel)]="item.glassType">
-            <option value="DVOSLOJNO" selected>DVOSLOJNO</option>
+          <select formControlName="glassType" class="form-control">
+            <option value="DVOSLOJNO">DVOSLOJNO</option>
             <option value="DVOSLOJNO - MUTNO">DVOSLOJNO - MUTNO</option>
             <option value="TROSLOJNO">TROSLOJNO</option>
             <option value="TROSLOJNO - MUTNO">TROSLOJNO - MUTNO</option>
@@ -63,15 +67,15 @@
 
         <div class="form-group col-md-3">
           <label for="net">Komarnik</label>
-          <select name="net" class="form-control" [(ngModel)]="item.net">
-            <option selected value="false" >NE</option>
+          <select formControlName="net" class="form-control">
+            <option value="false" selected>NE</option>
             <option value="true">DA</option>
           </select>
         </div> 
 
         <div class="form-group col-md-3">
           <label for="blinds">Rolete</label>
-          <select name="blinds" class="form-control" [(ngModel)]="item.blinds">
+          <select formControlName="blinds" class="form-control" >
             <option value="false" selected>NE</option>
             <option value="true">DA</option>
           </select>
@@ -82,12 +86,12 @@
       <div class="form-row">
           <div class="form-group col-md-6">
             <label for="note">Napomena</label>
-            <textarea class="form-control" name="note" rows="3" [(ngModel)]="item.note"></textarea>
+            <textarea class="form-control" formControlName="note" rows="3"></textarea>
           </div>
             
           <div class="form-group col-md-6">
             <div class="container my-5">
-              <button type="submit" form="editItem" class="btn btn-lg btn-primary float-right" onclick="window.location.reload()">Dodaj</button>
+              <button type="button" form="editItem" class="btn btn-lg btn-primary float-right" [disabled]="!addForm.valid" (click)="addItem()" onclick="window.location.reload()">Dodaj</button>
             </div>
           </div>
       </div>

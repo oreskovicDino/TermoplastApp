@@ -1,18 +1,31 @@
 <div class="jumbotron bg-color m-0 py-4">
   <h1 class="display-4 m-0 p-0">Podaci o korisniku</h1>
   <hr class="my-4 bg-primary">
-  <div class="text-center">
-    <h3 class="d-inline mx-3">Ime:<span class="badge badge-secundary border border-primary rounded-pill ml-2 px-3">{{user.name}}</span></h3>
-    <h3 class="d-inline mx-3">Email:<span class="badge badge-secundary border border-primary rounded-pill ml-2 px-3">{{user.email}}</span></h3>
-    <h3 class="d-inline mx-3">Adresa:<span class="badge badge-secundary border border-primary rounded-pill ml-2 px-3">{{user.address}}</span></h3>
-    <h3 class="d-inline mx-3">Tel:<span class="badge badge-secundary border border-primary rounded-pill ml-2 px-3">{{user.phone}}</span></h3>
+  <div class="">
+    <h4 class="d-inline mx-3">Ime:<span class="badge badge-secundary border border-primary rounded-pill ml-2 px-3">{{user.name}}</span></h4>
+    <h4 class="d-inline mx-3">Email:<span class="badge badge-secundary border border-primary rounded-pill ml-2 px-3">{{user.email}}</span></h4>
+    <h4 class="d-inline mx-3">Adresa:<span class="badge badge-secundary border border-primary rounded-pill ml-2 px-3">{{user.address}}</span></h4>
+    <h4 class="d-inline mx-3">Tel:<span class="badge badge-secundary border border-primary rounded-pill ml-2 px-3">{{user.phone}}</span></h4>
   </div>
-
+  <hr class="my-4 bg-primary">
+  <div class="clearfix">
+    <button type="button"
+     class="btn btn-lg btn-block border-success btn-secondary  float-left rounded-pill" style="max-width: 100px;" 
+     data-toggle="collapse" data-target="#ponudaEmail" aria-expanded="false" aria-controls="ponudaEmail"><i class="fa fa-envelope text-success"></i></button>
+    <button type="button"
+     class="btn btn-lg btn-block border-info btn-secondary ml-2 mt-0 float-left rounded-pill" style="max-width: 100px;"
+     data-toggle="collapse" data-target="#list" aria-expanded="false" aria-controls="list" ><i class="fa fa-th-list text-info"></i></button>
+    <button type="button"
+     class="btn btn-lg btn-block border-primary btn-secondary ml-2 mt-0 float-left rounded-pill" style="max-width: 100px;" 
+     data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="list ponudaEmail"><i class="fa fa-toggle-on text-primary"></i></button>
+    <button type="button" class="btn btn-lg btn-block border-danger btn-secondary mt-1 float-right  rounded-pill" style="max-width: 100px;" (click)="deleteUser(user.id)"><i class="fa fa-trash-o text-danger"></i></button>
+  </div>
+    
 </div>
 <hr class="bg-primary mt-0">
 
 
-<div class="row justify-content-center m-3">
+<div class="row justify-content-center m-3 collapse multi-collapse show" id="list">
   <div class="col-lg-5 col-md-12 border border-primarybadge-secundary border border-primary m-3 p-3 bg-color  " *ngFor="let item of items">
     <h3 class="display-5">Pozicija {{item.pozicija}}</h3>
 
@@ -35,4 +48,9 @@
     <h3 class="my-2">Napomena:</h3>
     <h3 class=" border border-primary rounded-pill px-4 py-2  m-2 text-wrap">{{item.note}}</h3>
   </div>
+</div>
+
+
+<div class="row justify-content-center m-3 collapse multi-collapse" id="ponudaEmail">
+  Email Here
 </div>

@@ -1,3 +1,4 @@
+import { Admin } from './../_models/admin';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
@@ -27,8 +28,8 @@ export class AuthService {
   }
 
 
-  register(model: any) {
-    return this.http.post(this.baseUrl + 'register', model);
+  register(admin: Admin) {
+    return this.http.post(this.baseUrl + 'register', admin);
   }
 
   loggedin() {

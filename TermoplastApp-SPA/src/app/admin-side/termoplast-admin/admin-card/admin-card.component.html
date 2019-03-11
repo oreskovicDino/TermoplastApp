@@ -58,30 +58,54 @@
       </div>
       <div class="modal-body">
         <div class="container bg-secondary p-2">
-          <form #registerForm="ngForm" (ngSubmit)="register()">
+          <form [formGroup]="registerForm" (ngSubmit)="register()">
             <div class="form-group">
-              <label class="text-white">Ime</label>
-              <input type="text" class="form-control" placeholder="Unesite ime" required name="username" [(ngModel)]="model.name">
+              <label for="name" class="text-white">Ime</label>
+              <input type="text" [ngClass]="{'is-invalid': registerForm.get('name').errors && registerForm.get('name').touched}"
+                class="form-control" placeholder="Unesite ime" formControlName="name">
+              <div class="invalid-feedback">Uneste ime</div>
+
             </div>
             <div class="form-group">
-              <label class="text-white">Prezime</label>
-              <input type="text" class="form-control" placeholder="Unesite Prezime" required name="username"
-                [(ngModel)]="model.lastname">
+              <label for="lastname" class="text-white">Prezime</label>
+              <input type="text" [ngClass]="{'is-invalid': registerForm.get('lastname').errors && registerForm.get('lastname').touched}"
+                class="form-control" placeholder="Unesite Prezime" formControlName="lastname">
+              <div class="invalid-feedback">Uneste prezime</div>
             </div>
             <div class="form-group">
-              <label class="text-white">Korisničko ime</label>
-              <input type="text" class="form-control" placeholder="Unesite Korisničko ime" required name="username"
-                [(ngModel)]="model.username">
+              <label for="username" class="text-white">Korisničko ime</label>
+              <input type="text" [ngClass]="{'is-invalid': registerForm.get('username').errors && registerForm.get('username').touched}"
+                class="form-control" placeholder="Unesite Korisničko ime" formControlName="username">
+              <div class="invalid-feedback">Unesite korisničko ime</div>
             </div>
             <div class="form-group">
-              <label class="text-white">Zaporka</label>
-              <input type="password" class="form-control" placeholder="Unesite Zaporku" name="password" [(ngModel)]="model.password">
+              <label for="password" class="text-white">Zaporka</label>
+              <input type="password" [ngClass]="{'is-invalid': registerForm.get('password').errors && registerForm.get('password').touched}"
+                class="form-control" placeholder="Unesite Zaporku" formControlName="password">
+              <div class="invalid-feedback" *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').touched">Unesite
+                zaporku</div>
+              <div class="invalid-feedback" *ngIf="registerForm.get('password').hasError('minlength') && registerForm.get('password').touched">Zaporka
+                mora imati naj manje 4 znaka</div>
+              <div class="invalid-feedback" *ngIf="registerForm.get('password').hasError('maxlength') && registerForm.get('password').touched">Zaporka
+                može imati naj više 8 znakova</div>
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword" class="text-white">Zaporka</label>
+              <input type="password" 
+              [ngClass]="{
+                'is-invalid': registerForm.get('confirmPassword').errors
+                 && registerForm.get('confirmPassword').touched 
+                 || registerForm.get('confirmPassword').touched 
+                 && registerForm.hasError('mismatch')}" class="form-control" placeholder="Potvrdite Zaporku" formControlName="confirmPassword">
+                <div class="invalid-feedback" *ngIf="registerForm.get('confirmPassword').hasError('required') && registerForm.get('confirmPassword').touched">Unesite zaporku</div>
+                <div class="invalid-feedback" *ngIf="registerForm.hasError('mismatch') && registerForm.get('confirmPassword').touched">Zaporke se moraju podudarati</div>
             </div>
           </form>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="register()" data-dismiss="modal">Registriraj</button>
+        <button type="button" class="btn btn-primary" [disabled]="!registerForm.valid"  (click)="register()" data-dismiss="modal" onclick="window.location.reload()">Registriraj</button>
+
       </div>
     </div>
   </div>

@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class AdminBlogCardComponent implements OnInit {
   @Input() posts: Posts[];
- 
+
   constructor() { }
 
   ngOnInit() {

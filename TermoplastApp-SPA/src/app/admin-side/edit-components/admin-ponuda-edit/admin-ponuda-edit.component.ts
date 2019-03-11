@@ -1,7 +1,9 @@
+import { UserService } from './../../../_services/user.service';
+import { AlertifyService } from 'src/app/_services/alertify.service';
 import { Items } from './../../../_models/items';
 import { User } from './../../../_models/user';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-ponuda-edit',
@@ -12,7 +14,8 @@ export class AdminPonudaEditComponent implements OnInit {
   user: User;
   items: Items[];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private alertify: AlertifyService, private userService: UserService,
+    private router: Router) { }
 
   ngOnInit() {
     this.loadUser();
@@ -46,6 +49,17 @@ export class AdminPonudaEditComponent implements OnInit {
 
   xyz(x) {
     return '../../../../assets/' + x + '.png';
+  }
+
+  deleteUser(id: number) {
+    this.alertify.confirm('Jeste li sigurni da želite obrisati ovu ponudu?', () => {
+      this.userService.deleteUser(id).subscribe(next => {
+        this.router.navigate(['/admin']);
+        this.alertify.success('Ponuda' + this.user.name + '. Je obrisana.');
+      }, error => {
+        this.alertify.error(error);
+      });
+    });
   }
 
 }

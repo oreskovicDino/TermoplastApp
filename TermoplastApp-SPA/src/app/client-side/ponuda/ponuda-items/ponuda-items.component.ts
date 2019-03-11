@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { User } from 'src/app/_models/user';
 import { Items } from 'src/app/_models/items';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { count } from 'rxjs/operators';
 
 @Component({
@@ -16,14 +16,16 @@ export class PonudaItemsComponent implements OnInit {
   @ViewChild('editItem') editItem: NgForm;
   user: User;
   items: Items[];
-  item: any = {};
+  item: Items;
+  addForm: FormGroup;
 
 
   constructor(private route: ActivatedRoute, private alertify: AlertifyService, private userService: UserService,
-    private router: Router) { }
+    private router: Router, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.loadUser();
+    this.createItemForm();
     this.items = this.getItems();
   }
 
@@ -51,17 +53,33 @@ export class PonudaItemsComponent implements OnInit {
     return itemsArray;
   }
 
+  createItemForm() {
+    this.addForm = this.fb.group({
+      height: ['', Validators.required],
+      width: ['', Validators.required],
+      profil: ['3D Design'],
+      windowType: ['jednokrilni'],
+      glassType: ['DVOSLOJNO'],
+      net: ['false'],
+      blinds: ['false'],
+      note: ['']
+    });
+  }
+
   xyz(x) {
     return '../../../../assets/' + x + '.png';
   }
 
   addItem() {
-    this.userService.addItem(this.user.id, this.item).subscribe(itemA => {
-      this.alertify.success('Uspješno dodano');
-      this.editItem.resetForm();
-    }, error => {
-      this.alertify.error(error);
-    });
+    if (this.addForm.valid) {
+      this.item = Object.assign({}, this.addForm.value);
+      this.userService.addItem(this.user.id, this.item).subscribe(() => {
+        this.alertify.success('Dodano');
+        this.addForm.reset();
+      }, error => {
+        this.alertify.error(error);
+      });
+    }
   }
 
 }
