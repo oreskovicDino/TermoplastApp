@@ -1,7 +1,15 @@
-<div class="container mt-5">
-  <div class="row">
-    <div *ngFor="let post of posts" class="col-lg-6 col-md-12 col-sm-12">
+<!-- <div class=" mt-5">
+  <div class="row justify-content-center">
+    <div *ngFor="let post of posts" class="mx-auto col-lg-12 col-md-12 col-sm-12">
         <app-blog-card [post]="post"></app-blog-card>
     </div>
   </div>
-</div>
+</div> -->
+
+<div class=" mt-5">
+    <div class=" justify-content-center">
+      <div *ngFor="let post of posts" class="mx-auto" style="max-width: 120rem">
+          <app-blog-card [post]="post"></app-blog-card>
+      </div>
+    </div>
+  </div>

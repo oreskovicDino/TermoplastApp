@@ -1,11 +1,30 @@
-<div class="card mb-4 border-5 border-primary ">
+<!-- <div class="card mb-4 border-5 border-primary ">
     <h3 class="card-title font-weight-bold text-center mb-1 p-2">{{post.title}}</h3>
   <div class="card-body p-0">
-    <div class="card-img-wrapper"><img src="{{post.photoUrl || '../../../../../../assets/default.png'}}" alt="Nesto" class="card-img-top">
+    <div class="card-img-wrapper">
+      <img src="{{post.photoUrl || '../../../../../../assets/default.png'}}" alt="Nesto" class="card-img-top">
       <div class="head-text animate">
         <p class="p-1">{{post.head}}</p>
         <button class="btn btn-primary btn-lg btn-block" [routerLink]="['/blog/', post.id]" >Detalji</button>
       </div>
+    </div>
+  </div>
+</div> -->
+<div class="jumbotron pt-3 mx-3  bg-color">
+  <h1 class="display-4">{{post.title}}</h1>
+  <hr class="my-4 bg-primary">
+  <div class="row justify-content-center">
+    <div class="col-md-5 col-lg-3 col-sm-8  mx-auto mb-4">
+      
+      <img src="{{post.photoUrl || '../../../../../../assets/default.png'}}" alt="{{post.title}}" class="img-tgumbnail" style="max-width: 25rem;">
+      
+    </div>
+    
+    <div class="col-md-12 col-lg-6  col-sm-11  col-xl-8 mx-auto">
+      <hr class="my-4 bg-primary">
+      <p class="h4 text-whit ">{{post.head}}</p>
+      <hr class="my-4 bg-primary">
+      <button class="btn  text-white rounded-pill border-info px-5 btn-secondary  btn-lg float-right" [routerLink]="['/blog/', post.id]" >Nastavite čitati...</button>
     </div>
   </div>
 </div>

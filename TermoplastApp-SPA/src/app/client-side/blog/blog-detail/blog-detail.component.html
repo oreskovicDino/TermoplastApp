@@ -1,4 +1,4 @@
-<div class="container ">
+<!-- <div class="container ">
   <h1 class="text-center naslov my-5 py-2 display-2 border-info border-bottom">{{post.title}}</h1>
   <div class=" mt-2 py-4 border border-primary  mb-5">
     <p class=" text-break h3 p-3">{{post.head}}</p>
@@ -8,5 +8,39 @@
   </div>
   <div class="mt-2 px-4 my-5 border border-primary ">
     <p class="p-3 text-wrap text-break h4">{{post.body}}</p>
+  </div>
+</div> -->
+
+<div class=" mt-5">
+  <div class=" justify-content-center">
+    <div class="mx-auto" style="max-width: 120rem">
+      <div class="jumbotron pt-3 mx-3  bg-color">
+        <div class="text-center">
+          <h1 class="display-4">{{post.title}}</h1>
+        </div>
+        <hr class="my-4 bg-primary">
+        <div class="row justify-content-center">
+          <div class="col-md-5 col-lg-3 col-sm-8   mx-auto mb-4">
+            
+            <img src="{{post.photoUrl || '../../../../../../assets/default.png'}}" alt="{{post.title}}" class="img-tgumbnail"
+            style="max-width: 25rem;">
+            
+          </div>
+          
+          <div class="col-md-12 col-lg-6  col-sm-11  col-xl-8 mx-auto mt-5">
+            <hr class="my-4 bg-primary">
+            <p class="h4 text-whit ">{{post.head}}</p>
+            
+          </div>
+        </div>
+        <hr class="my-4 bg-primary">
+        <div class="d-flex justify-content-center   p-2">
+            <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+          </div>
+        <hr class="my-4 bg-primary">
+        <p class="p-3 text-wrap text-break h4">{{post.body}}</p>
+      </div>
+
+    </div>
   </div>
 </div>
