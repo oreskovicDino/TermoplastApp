@@ -48,7 +48,7 @@ export class AdminBlogEditComponent implements OnInit {
     this.alertify.confirm('Jeste li sigurni da želite obrisati ovaj blog?', () => {
       this.postService.deletePost(id).subscribe(next => {
         this.navigate.navigate(['/admin']);
-        this.alertify.success('Blog' + this.post.title + '. Je Obrisan');
+        this.alertify.success('Blog ' + this.post.title + '. Je Obrisan');
       }, error => {
         this.alertify.error('Faild to delete the post' + error);
       });

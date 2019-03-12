@@ -1,3 +1,4 @@
+import { KontaktUpitComponent } from './client-side/kontakt/kontakt-upit/kontakt-upit.component';
 import { PonudaItemsComponent } from './client-side/ponuda/ponuda-items/ponuda-items.component';
 import { AdminBlogAddComponent } from './admin-side/termoplast-admin/admin-blog-card/admin-blog-add/admin-blog-add.component';
 import { PhotoEditorComponent } from './admin-side/edit-components/admin-blog-edit/photo-editor/photo-editor.component';
@@ -46,6 +47,7 @@ import { UserListResolver } from './_resolvers/user-list.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { FileUploadModule } from 'ng2-file-upload';
 
+
 export function tokenGetter() {
    return localStorage.getItem('token');
 }
@@ -60,6 +62,7 @@ export function tokenGetter() {
       TermoplastAdminComponent,
       ProizvodiComponent,
       KontaktComponent,
+      KontaktUpitComponent,
       BlogComponent,
       PonudaComponent,
       PonudaItemsComponent,

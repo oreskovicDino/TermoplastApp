@@ -29,16 +29,20 @@
           
           <div class="col-md-12 col-lg-6  col-sm-11  col-xl-8 mx-auto mt-5">
             <hr class="my-4 bg-primary">
-            <p class="h4 text-whit ">{{post.head}}</p>
+            <div class="container">
+              <p class="h4 text-whit ">{{post.head}}</p>
+            </div>
             
           </div>
         </div>
-        <hr class="my-4 bg-primary">
-        <div class="d-flex justify-content-center   p-2">
+        <hr class="my-4 bg-primary" *ngIf="!(post.photos.length == 0)">
+        <div class="d-flex justify-content-center p-2" *ngIf="!(post.photos.length == 0)">
             <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
           </div>
         <hr class="my-4 bg-primary">
-        <p class="p-3 text-wrap text-break h4">{{post.body}}</p>
+        <div class="container">
+          <p class="p-3 text-wrap text-break h4">{{post.body}}</p>
+        </div>
       </div>
 
     </div>

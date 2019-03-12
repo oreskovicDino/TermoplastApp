@@ -1,62 +1,78 @@
-<div class="container ">
-
-
-  <div class="accordion" id="accordionExample">
-    <div class="card">
-      <div class="card-header" id="headingOne">
-        <h2 class="mb-0">
-          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-            aria-controls="collapseOne">
-            Collapsible Group Item #1
-          </button>
-        </h2>
-      </div>
-
-      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+<div class="jumbotron mx-auto mt-5 pt-3 bg-color-1" style="max-width: 120rem">
+  <h1 class="display-3">Kontakt</h1>
+  <hr class="my-4 bg-primary">
+  <h4 class="ml-2">Pošaljite nam
+    <a data-toggle="collapse" href="#upit" role="button" aria-expanded="false" aria-controls="upit">UPIT</a>
+    ili s točnim mjerama otvora
+    <a data-toggle="collapse" href="#zatrazitePonudu" aria-expanded="false" aria-controls="zatrazitePonudu">ZATRAŽITE
+      PONUDU</a>
+    i saznajte okvirnu cijenu. Očekujemo Vas!</h4>
+  <hr class="my-4 bg-primary">
+  <div class="row justify-content-center">
+    <div class="col-md-5 col-lg-4 col-sm-12  mx-auto mb-4">
+      <div class="card text-white bg-color mb-2 border border-primary" style="max-width: 720px;">
+        <div class="card-header h3 text-primary">TERMOPLAST - PVC PROZORI I VRATA</div>
         <div class="card-body">
-          <app-ponuda></app-ponuda>
+          <h4 class="card-title ">KONTAKT INFORMACIJE:</h4>
+          <div class="container mt-3">
+            <h4 class="card-text ">Adresa:<span class="badge  border border-primary rounded-pill ml-3 px-3 py-2">M.
+                Divalta 92, 31000 Osijek</span></h4>
+          </div>
+          <div class="container mt-2">
+            <h4 class="card-text">tel/fax:<span class="badge border border-primary rounded-pill ml-3 px-3 py-2">031/582-109</span></h4>
+          </div>
+          <div class="container mt-2">
+            <h4 class="card-text">Adresa:<span class="badge border border-primary rounded-pill ml-3 px-3 py-2">M.
+                Divalta 92, 31000 Osijek</span></h4>
+          </div>
+          <div class="container mt-2">
+            <h4 class="card-text">OIB:<span class="badge border border-primary rounded-pill ml-3 px-3 py-2">88012843535</span></h4>
+          </div>
+          <hr class="my-4 bg-primary">
+          <h4 class="card-title ">RADNO VRIJEME:</h4>
+          <div class="container mt-2">
+            <h4 class="card-text">Pon - Pet:<span class="badge border border-primary rounded-pill ml-3 px-3 py-2">8 -
+                16 h</span></h4>
+          </div>
+          <div class="container mt-2">
+            <h4 class="card-text">Subota:<span class="badge border border-primary rounded-pill ml-3 px-3 py-2">8 - 12 h</span></h4>
+          </div>
+
         </div>
       </div>
     </div>
-    <div class="card">
-      <div class="card-header" id="headingTwo">
-        <h2 class="mb-0">
-          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="false" aria-controls="collapseTwo">
-            Collapsible Group Item #2
-          </button>
-        </h2>
-      </div>
-      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-        <div class="card-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-          officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
-          wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-          Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan
-          excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt
-          you probably haven't heard of them accusamus labore sustainable VHS.
-        </div>
+    <div class="col-md-6 col-lg-7 col-sm-12  mx-auto mb-4">
+      <div class="mapst border border-primary">
+          <agm-map [latitude]="latitude" [longitude]="longitude" mapTypeId=terrain mapTypeControl="true" [zoom]="14"
+          [rotateControl]="true" [scrollwheel]="false">
+          <agm-marker [latitude]="latitude" [longitude]="longitude">
+            <agm-info-window>TERMOPLAST Osijek </agm-info-window>
+          </agm-marker>
+        </agm-map>
       </div>
     </div>
-    <div class="card">
-      <div class="card-header" id="headingThree">
-        <h2 class="mb-0">
-          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
-            aria-expanded="false" aria-controls="collapseThree">
-            Collapsible Group Item #3
-          </button>
-        </h2>
-      </div>
-      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-        <div class="card-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-          officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
-          wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-          Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan
-          excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt
-          you probably haven't heard of them accusamus labore sustainable VHS.
-        </div>
-      </div>
+  </div>
+
+  <hr class="my-4 bg-primary">
+
+  <div class="container">
+    <button class="btn border-info btn-secondary text-white btn-lg px-4 rounded-pill m-1" type="button" data-toggle="collapse" data-target="#upit" aria-expanded="false" aria-controls="upit"><i class="fa fa-at mr-2 text-info"></i> Upit </button>
+    <button class="btn border-success btn-secondary text-white btn-lg px-4 rounded-pill m-1" type="button" data-toggle="collapse" data-target="#zatrazitePonudu" aria-expanded="false" aria-controls="zatrazitePonudu"><i class="fa fa-file-o text-success mr-2"></i> Zatražite Ponudu</button>
+    <button class="btn border-primary btn-secondary text-primary btn-lg px-4 rounded-pill m-1" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="upit zatrazitePonudu"><i class="fa fa-toggle-on"></i></button>
+  </div>
+
+  <div class="">
+    <div class="collapse multi-collapse" id="upit">
+      <hr class="my-4 bg-primary">
+      
+        <app-kontakt-upit></app-kontakt-upit>
+      
+    </div>
+  </div>
+  <div class="">
+    <div class="collapse multi-collapse" id="zatrazitePonudu">
+      <hr class="my-4 bg-primary">
+      <app-ponuda></app-ponuda>
     </div>
   </div>
 </div>
